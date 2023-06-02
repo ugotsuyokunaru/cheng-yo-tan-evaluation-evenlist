@@ -188,29 +188,36 @@ class TodoView {
     }
 
     addEventItem(id) {
+        // button
         const addBtn = document.getElementById(`add-${id}`);
         addBtn.style.display = "none";
         const addCancelBtn = document.getElementById(`add-cancel-${id}`);
         addCancelBtn.style.display = "none";
-
         const editBtn = document.getElementById(`edit-${id}`);
         editBtn.style.display = "inline-block";
-        const editEndBtn = document.getElementById(`save-${id}`);
-        editEndBtn.style.display = "inline-block";
+        const deleteBtn = document.getElementById(`delete-${id}`);
+        deleteBtn.style.display = "inline-block";
 
+        // content
         const eventContent = document.getElementById(`content-${id}`);
-        const editbox = document.getElementById(`editbox-${id}`);
+        const editBox = document.getElementById(`editbox-${id}`);
         eventContent.textContent = editBox.value;
+        eventContent.style.display = "inline-block";
+        editBox.style.display = "none";
 
         const startSelect = document.getElementById(`start-date-select-${id}`);
         const startContent = document.getElementById(`start-date-text-${id}`);
-        startSelect.textContent = startContent.value;
+        startContent.textContent = startSelect.value;
+        startContent.style.display = "inline-block";
+        startSelect.style.display = "none";
 
         const endSelect = document.getElementById(`end-date-select-${id}`);
         const endContent = document.getElementById(`end-date-text-${id}`);
-        endSelect.textContent = endContent.value;
+        endContent.textContent = endSelect.value;
+        endContent.style.display = "inline-block";
+        endSelect.style.display = "none";
 
-        return [eventContent.textContent, startSelect.textContent, endSelect.textContent];
+        return [editBox.value, startSelect.value, endSelect.value];
     }  
 
     startTodoItemEditMode(id) {
@@ -285,10 +292,12 @@ class TodoController {
     async setUpAddEventLisitener() {
         this.view.eventList.addEventListener("click", async (e) => {
             const element = e.target;
-            console.log(element)
             const isAddBtn = element.classList.contains("event-item__add-btn");
             if (isAddBtn) {
-                const idStrList = element.id.split("-");
+                const eventItem = element.parentNode.parentNode.parentNode;
+                console.log(eventItem)
+                console.log(eventItem.id)
+                const idStrList = eventItem.id.split("-");
                 const editID = idStrList[idStrList.length - 1];
                 const [content, start, end] = this.view.addEventItem(editID);
 
