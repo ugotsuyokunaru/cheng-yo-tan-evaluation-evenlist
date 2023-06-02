@@ -1,0 +1,75 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 1.5em;
+}
+
+td {
+  text-align: center;
+}
+
+.event-input {
+  display: flex;
+  justify-content: center;
+}
+
+.event-item {
+  background-color: #e6e2d3;
+}
+
+.event-list {
+  border: solid #e6e2d3 0.3em;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.event-item__text,
+.event-item__add-btn,
+.event-item__add-cancel-btn,
+.event-item__edit-btn,
+.event-item__delete-btn,
+.event-item__save-btn,
+.event-item__edit-cancel-btn {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin: 1%;
+}
+
+.event-item__text {
+  border: solid lightgray;
+}
+
+.event-item__add-btn,
+.event-item__edit-btn,
+.event-item__save-btn {
+  width: 8%;
+  background-color: #008cba;
+}
+
+.event-item__add-cancel-btn,
+.event-item__edit-cancel-btn,
+.event-item__delete-btn {
+  width: 8%;
+  background-color: #c94c4c;
+}
+
+.event-item,
+.event-item__create {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: solid lightgray;
+}
+
+.event-item__create {
+  color: white;
+  border-radius: 0.5em;
+  background-color: #008cba;
+}
